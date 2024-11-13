@@ -41,7 +41,6 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "elixir", "eex", "heex" },
         highlight = { enable = true },
         indent = { enable = true },
       })
@@ -54,9 +53,6 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.elixirls.setup({
-        cmd = { "/home/austin/projects/elixir-ls/release/language_server.sh" }
-      })
     end,
   },
   -- file explorer
@@ -77,58 +73,33 @@ require("lazy").setup({
       -- calling `setup` is optional for customization
       require("fzf-lua").setup({})
     end
-  },
-  {
-    "elixir-tools/elixir-tools.nvim",
-    version = "*",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      local elixir = require("elixir")
-      local elixirls = require("elixir.elixirls")
-
-      elixir.setup {
-        nextls = {enable = true},
-        elixirls = {
-          enable = true,
-          settings = elixirls.settings {
-            dialyzerEnabled = false,
-            enableTestLenses = false,
-          },
-          on_attach = function(client, bufnr)
-            vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-          end,
-        },
-        projectionist = {
-          enable = true
-        }
-      }
-    end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
   }
 })
 
 require("nvim-tree").setup({
-  --  sort = {
-    --    sorter = "case_sensitive",
-    --  },
-    view = {
-      width = 30,
-    },
-    renderer = {
-      group_empty = true,
-    },
-    filters = {
-      custom = { "^.git$" }
-    },
-  })
-
-  require("elixir").setup({
-    nextls = {enable = false},
-    elixirls = {enable = true},
-    projectionist = {enable = true},
-  })
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+    icons = {
+      show = {
+        file = false,
+        folder = false,
+        git = false,
+        bookmarks = false,
+        diagnostics = false,
+      },
+      glyphs = {
+        folder = {
+          arrow_open = "<",
+          arrow_closed = ">",
+        }
+      },
+    }
+  },
+  filters = {
+    custom = { "^.git$" }
+  },
+})
 
