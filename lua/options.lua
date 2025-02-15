@@ -31,13 +31,13 @@ opt.smartcase = true            -- but make it case sensitive if an uppercase is
 -- listchars
 opt.list = true
 opt.listchars:append({
-    tab = "→ ",
-    eol = "↲",
-    space = "\\u2027",
-    nbsp = "␣",
-    trail = "•",
-    extends = "⟩",
-    precedes = "⟨"
+	tab = "→ ",
+	eol = "↲",
+	space = "\\u2027",
+	nbsp = "␣",
+	trail = "•",
+	extends = "⟩",
+	precedes = "⟨"
 })
 
 -- folding

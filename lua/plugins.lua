@@ -6,8 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
 		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+		lazypath, })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -79,14 +78,32 @@ require("lazy").setup({
 			'nvim-tree/nvim-web-devicons',
 		},
 	},
+	{
+		'echasnovski/mini.clue',
+		version = false
+	},
 	-- fzf
 	{
 		"ibhagwan/fzf-lua",
-		-- optional for icon support
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			-- calling `setup` is optional for customization
-			require("fzf-lua").setup({})
+			require("fzf-lua").setup({
+				winopts = {
+					-- rounded borders in vim is like adding a 2ft spoiler to a volvo
+					-- why is this plugin so busted wtf
+					-- rounded corners:
+					-- border = "solid"
+					-- fucked up layout
+					-- border = {" "},
+					-- only thing that doesnt result in fucked up layout or rounded corners:
+					border = "none",
+					preview = {
+						border = "none"
+					}
+				},
+				files = {
+					file_icons = false
+				}
+			})
 		end
 	}
 })
