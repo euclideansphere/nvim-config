@@ -4,7 +4,7 @@ require('plugins')
 require('colorscheme')
 require('lsp')
 
-vim.keymap.set("n", "<c-P>", require('fzf-lua').files, { desc = "Fzf Files" })
+-- vim.keymap.set("n", "<c-P>", require('fzf-lua').files, { desc = "Fzf Files" })
 
 vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
 vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
