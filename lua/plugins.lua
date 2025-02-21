@@ -83,30 +83,6 @@ require("lazy").setup({
 		'echasnovski/mini.clue',
 		version = false
 	},
-	-- fzf
-	{
-		"ibhagwan/fzf-lua",
-		config = function()
-			require("fzf-lua").setup({
-				winopts = {
-					-- rounded borders in vim is like adding a 2ft spoiler to a volvo
-					-- why is this plugin so busted wtf
-					-- rounded corners:
-					-- border = "solid"
-					-- fucked up layout
-					-- border = {" "},
-					-- only thing that doesnt result in fucked up layout or rounded corners:
-					border = "none",
-					preview = {
-						border = "none"
-					}
-				},
-				files = {
-					file_icons = false
-				}
-			})
-		end
-	},
 	require('plugins.snacks')
 })
 
