@@ -68,6 +68,7 @@ require("lazy").setup({
 	-- ale - asynchronous linting engine
 	{
 		'dense-analysis/ale',
+		enabled = false
 	},
 	-- file explorer
 	'nvim-tree/nvim-web-devicons',
@@ -105,7 +106,8 @@ require("lazy").setup({
 				}
 			})
 		end
-	}
+	},
+	require('plugins.snacks')
 })
 
 require("nvim-tree").setup({

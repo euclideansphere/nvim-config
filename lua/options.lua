@@ -45,6 +45,10 @@ opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 2
 
+-- leader
+vim.g.mapleader = ","
+vim.api.nvim_set_keymap('n', '<Leader>ewq', ':wqa<CR>', { noremap = true, silent = true })
+
 -- tree file explorer
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
