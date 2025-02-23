@@ -42,6 +42,7 @@ require("lazy").setup({
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
 					"lua",
+					"elixir",
 					"vim",
 					"markdown",
 					"markdown_inline",
