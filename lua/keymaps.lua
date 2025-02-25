@@ -1,31 +1,53 @@
--- define common options
-local opts = {
-	noremap = true,      -- non-recursive
-	silent = true,       -- do not show message
-}
+local function merge(t1, t2)
+	local result = {}
+	for key, value in pairs(t1) do
+		result[key] = value
+	end
+	for key, value in pairs(t2) do
+		result[key] = value
+	end
+	return result
+end
 
------------------
--- Normal mode --
------------------
+local function with_defaults(mode, opts_1)
+	return function(trig, result, opts_2)
+		-- hint: see `:h vim.keymap.set()`
+		vim.keymap.set(mode, trig, result,
+			merge(
+				opts_1 or {
+					noremap = true,      -- non-recursive
+					silent = true,       -- do not show message
+				},
+				opts_2 or {}
+			)
+		)
+	end
+end
 
--- Hint: see `:h vim.map.set()`
+-- normal mode --
+
+local set_n_keymap = with_defaults('n')
+
 -- Better window navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
-vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
-vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
-vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
+set_n_keymap('<C-h>', '<C-w>h')
+set_n_keymap('<C-j>', '<C-w>j')
+set_n_keymap('<C-k>', '<C-w>k')
+set_n_keymap('<C-l>', '<C-w>l')
 
--- Resize with arrows
+-- resize with arrows
 -- delta: 2 lines
-vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
+set_n_keymap('<C-Up>', ':resize -2<CR>')
+set_n_keymap('<C-Down>', ':resize +2<CR>')
+set_n_keymap('<C-Left>', ':vertical resize +2<CR>')
+set_n_keymap('<C-Right>', ':vertical resize -2<CR>')
 
------------------
--- Visual mode --
------------------
+-- ergo save all and exit
+set_n_keymap('<Leader>ewq', ':wqa<CR>')
 
--- Hint: start visual mode with the same area as the previous area and the same mode
-vim.keymap.set('v', '<', '<gv', opts)
-vim.keymap.set('v', '>', '>gv', opts)
+-- visual mode --
+
+local set_v_keymap = with_defaults('v')
+
+-- allows repeated block shift left/right
+set_v_keymap('<', '<gv')
+set_v_keymap('>', '>gv')

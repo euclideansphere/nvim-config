@@ -6,5 +6,6 @@ if not is_ok then
 	return
 end
 
+-- enable partial transparency (terminal emulator must also support for it to work)
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

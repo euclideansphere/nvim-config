@@ -12,11 +12,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"ellisonleao/gruvbox.nvim",
-	-- Vscode-like pictograms
-	{
-		"onsails/lspkind.nvim",
-		event = { "VimEnter" },
-	},
 	-- Auto-completion engine
 	{
 		"hrsh7th/nvim-cmp",
@@ -27,9 +22,7 @@ require("lazy").setup({
 			"hrsh7th/cmp-path", -- path auto-completion
 			"hrsh7th/cmp-cmdline", -- cmdline auto-completion
 		},
-		config = function()
-			require("config.nvim-cmp")
-		end,
+		config = function() require("config.nvim-cmp") end,
 	},
 	-- Code snippet engine
 	{
@@ -60,57 +53,20 @@ require("lazy").setup({
 	-- mason is a UI tool for managing lsps
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			local lspconfig = require("lspconfig")
-		end,
-	},
+	{ "neovim/nvim-lspconfig" },
 	-- ale - asynchronous linting engine
 	{
 		'dense-analysis/ale',
 		enabled = false
 	},
-	-- file explorer
-	'nvim-tree/nvim-web-devicons',
-	{
-		'nvim-tree/nvim-tree.lua',
-		lazy = true,
-		dependencies = {
-			'nvim-tree/nvim-web-devicons',
-		},
-	},
 	{
 		'echasnovski/mini.clue',
 		version = false
 	},
-	require('plugins.snacks')
-})
-
-require("nvim-tree").setup({
-	view = {
-		width = 30,
-	},
-	renderer = {
-		group_empty = true,
-		icons = {
-			show = {
-				file = false,
-				folder = false,
-				git = false,
-				bookmarks = false,
-				diagnostics = false,
-			},
-			glyphs = {
-				folder = {
-					arrow_open = "<",
-					arrow_closed = ">",
-				}
-			},
-		}
-	},
-	filters = {
-		-- custom = { "^.git$" }
+	require('plugins.snacks'),
+	{
+		"nvim-tree/nvim-tree.lua",
+		config = function() require('plugins.nvim-tree') end,
 	},
 })
 
