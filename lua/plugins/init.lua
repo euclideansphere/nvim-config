@@ -29,6 +29,17 @@ require("lazy").setup({
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 	},
+	-- pairs
+	{
+		'echasnovski/mini.pairs',
+		version = '*',
+		config = function() require('mini.pairs').setup() end
+	},
+	{
+		'echasnovski/mini.comment',
+		version = '*',
+		config = function() require('mini.comment').setup() end
+	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
@@ -61,7 +72,7 @@ require("lazy").setup({
 	},
 	{
 		'echasnovski/mini.clue',
-		version = false
+		version = '*',
 	},
 	require('plugins.snacks'),
 	{

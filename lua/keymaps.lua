@@ -44,6 +44,12 @@ set_n_keymap('<C-Right>', ':vertical resize -2<CR>')
 -- ergo save all and exit
 set_n_keymap('<Leader>ewq', ':wqa<CR>')
 
+-- diagnostics (lint tags)
+set_n_keymap('<space>e', vim.diagnostic.open_float)
+set_n_keymap('[d', vim.diagnostic.goto_prev)
+set_n_keymap(']d', vim.diagnostic.goto_next)
+set_n_keymap('<space>q', vim.diagnostic.setloclist)
+
 -- visual mode --
 
 local set_v_keymap = with_defaults('v')
