@@ -34,6 +34,7 @@ require("lazy").setup({
 		'echasnovski/mini.pairs',
 		version = '*',
 		config = function() require('mini.pairs').setup() end
+		enabled = false
 	},
 	{
 		'echasnovski/mini.comment',
