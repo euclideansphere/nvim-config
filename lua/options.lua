@@ -1,6 +1,5 @@
 -- Hint: use `:h <option>` to figure out the meaning if needed
 
-local vim = vim
 local opt = vim.opt
 
 opt.clipboard = 'unnamedplus'   -- use system clipboard 

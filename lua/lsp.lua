@@ -16,11 +16,11 @@ require('mason-lspconfig').setup({
 		'tflint',
 		'bashls',
 		'elixirls',
-		'gopls',
+		-- 'gopls',
 		'html',
 		'ltex',
 		'sqlls',
-		'typescript-language-server'
+		-- 'typescript-language-server'
 	},
 })
 

@@ -6,7 +6,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
 		"--branch=stable", -- latest stable release
-		lazypath, })
+		lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -23,18 +24,6 @@ require("lazy").setup({
 			"hrsh7th/cmp-cmdline", -- cmdline auto-completion
 		},
 		config = function() require("config.nvim-cmp") end,
-	},
-	-- Code snippet engine
-	{
-		"L3MON4D3/LuaSnip",
-		version = "v2.*",
-	},
-	-- pairs
-	{
-		'echasnovski/mini.pairs',
-		version = '*',
-		config = function() require('mini.pairs').setup() end
-		enabled = false
 	},
 	{
 		'echasnovski/mini.comment',
@@ -62,19 +51,13 @@ require("lazy").setup({
 			})
 		end,
 	},
-	-- mason is a UI tool for managing lsps
+	-- lsp / dap / linter configurators
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
-	{ "neovim/nvim-lspconfig" },
+	"neovim/nvim-lspconfig",
 	-- ale - asynchronous linting engine
-	{
-		'dense-analysis/ale',
-		enabled = false
-	},
-	{
-		'echasnovski/mini.clue',
-		version = '*',
-	},
+	{ 'dense-analysis/ale', enabled = false },
+	{ 'echasnovski/mini.clue', version = '*', },
 	require('plugins.snacks'),
 	{
 		"nvim-tree/nvim-tree.lua",
