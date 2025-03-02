@@ -1,7 +1,8 @@
 require('options')
+-- keymaps sets leader, so must come before plugins
 require('keymaps')
-require('plugins')
 require('filetype')
+require("config.lazy")
 require('colorscheme')
 require('lsp')
 
