@@ -17,10 +17,12 @@ fzf
 
 nvim plugins to look into:
 
+https://neovimcraft.com/plugin/ms-jpq/coq_nvim/
+
+and
 
 ```
 blink.cmp
-
 ```
 
 zsh config:
