@@ -57,3 +57,7 @@ local set_v_keymap = with_defaults('v')
 -- allows repeated block shift left/right
 set_v_keymap('<', '<gv')
 set_v_keymap('>', '>gv')
+
+local set_t_keymap = with_defaults('t')
+
+set_t_keymap('<ESC>', '<C-\\><C-n>')

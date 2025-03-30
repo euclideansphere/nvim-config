@@ -4,5 +4,4 @@ require('keymaps')
 require('filetype')
 require("config.lazy")
 require('colorscheme')
-require('lsp')
 
