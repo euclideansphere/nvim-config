@@ -15,8 +15,8 @@ local function with_defaults(mode, opts_1)
 		vim.keymap.set(mode, trig, result,
 			merge(
 				opts_1 or {
-					noremap = true,      -- non-recursive
-					silent = true,       -- do not show message
+					noremap = true, -- non-recursive
+					silent = true,  -- do not show message
 				},
 				opts_2 or {}
 			)
@@ -36,19 +36,28 @@ set_n_keymap('<C-l>', '<C-w>l')
 
 -- resize with arrows
 -- delta: 2 lines
-set_n_keymap('<C-Up>', ':resize -2<CR>')
-set_n_keymap('<C-Down>', ':resize +2<CR>')
-set_n_keymap('<C-Left>', ':vertical resize +2<CR>')
-set_n_keymap('<C-Right>', ':vertical resize -2<CR>')
+-- set_n_keymap('<C-Up>', ':resize -2<CR>')
+-- set_n_keymap('<C-Down>', ':resize +2<CR>')
+-- set_n_keymap('<C-Left>', ':vertical resize +2<CR>')
+-- set_n_keymap('<C-Right>', ':vertical resize -2<CR>')
 
--- ergo save all and exit
-set_n_keymap('<Leader>ewq', ':wqa<CR>')
-
--- diagnostics (lint tags)
+-- diagnostics (lint/lsp tags)
 set_n_keymap('<space>e', vim.diagnostic.open_float)
-set_n_keymap('[d', vim.diagnostic.goto_prev)
-set_n_keymap(']d', vim.diagnostic.goto_next)
-set_n_keymap('<space>q', vim.diagnostic.setloclist)
+-- set_n_keymap('[d', vim.diagnostic.goto_prev)
+-- set_n_keymap(']d', vim.diagnostic.goto_next)
+-- set_n_keymap('<space>q', vim.diagnostic.setloclist)
+
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
+
+set_n_keymap('<leader>k', function()
+  -- virtual_lines is either a table or true/false, let's just check for the
+  -- boolean value.
+  if vim.diagnostic.config().virtual_lines == true then
+    vim.diagnostic.config({ virtual_lines = { current_line = true } })
+  else
+    vim.diagnostic.config({ virtual_lines = true })
+  end
+end, { desc = 'Toggle showing all diagnostics or just current line' })
 
 -- visual mode --
 
@@ -57,6 +66,8 @@ local set_v_keymap = with_defaults('v')
 -- allows repeated block shift left/right
 set_v_keymap('<', '<gv')
 set_v_keymap('>', '>gv')
+
+-- terminal mdoe --
 
 local set_t_keymap = with_defaults('t')
 
