@@ -2,30 +2,30 @@
 
 local opt = vim.opt
 
-opt.clipboard = 'unnamedplus'   -- use system clipboard 
-opt.completeopt = {'menu', 'menuone', 'noselect'}
-opt.mouse = 'a'                 -- allow the mouse to be used in Nvim
+opt.clipboard = 'unnamedplus' -- use system clipboard
+opt.completeopt = { 'menu', 'menuone', 'noselect' }
+opt.mouse = 'a'               -- allow the mouse to be used in Nvim
 
 -- tabs vs spaces
-opt.tabstop = 2                 -- number of visual spaces per TAB
-opt.softtabstop = 2             -- number of spacesin tab when editing
-opt.shiftwidth = 2              -- insert 4 spaces on a tab
-opt.expandtab = false           -- tabs are spaces
+opt.tabstop = 2       -- number of visual spaces per TAB
+opt.softtabstop = 2   -- number of spacesin tab when editing
+opt.shiftwidth = 2    -- insert 4 spaces on a tab
+opt.expandtab = false -- tabs are spaces
 
 -- editor shit
-opt.number = true               -- show absolute number
-opt.relativenumber = true       -- add numbers to each line on the left side
-opt.cursorline = true           -- highlight cursor line underneath the cursor horizontally
-opt.splitbelow = true           -- open new vertical split bottom
-opt.splitright = true           -- open new horizontal splits right
-opt.termguicolors = true        -- enable 24-bit RGB color in the TUI
-opt.showmode = false            -- we are experienced, wo don't need the "-- INSERT --" mode hint
+opt.number = true          -- show absolute number
+opt.relativenumber = false -- add numbers to each line on the left side
+opt.cursorline = true      -- highlight cursor line underneath the cursor horizontally
+opt.splitbelow = true      -- open new vertical split bottom
+opt.splitright = true      -- open new horizontal splits right
+opt.termguicolors = true   -- enable 24-bit RGB color in the TUI
+opt.showmode = false       -- we are experienced, wo don't need the "-- INSERT --" mode hint
 
 -- searching
-opt.incsearch = true            -- search as characters are entered
-opt.hlsearch = false            -- do not highlight matches
-opt.ignorecase = true           -- ignore case in searches by default
-opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
+opt.incsearch = true  -- search as characters are entered
+opt.hlsearch = false  -- do not highlight matches
+opt.ignorecase = true -- ignore case in searches by default
+opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
 
 -- listchars
 opt.list = true
@@ -53,4 +53,3 @@ vim.g.loaded_netrwPlugin = 1
 
 -- completion
 vim.cmd("set completeopt+=menuone,noselect,popup")
-
