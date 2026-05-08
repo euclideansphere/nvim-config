@@ -45,10 +45,10 @@ set_n_keymap('<C-Right>', ':vertical resize -2<CR>')
 set_n_keymap('<Leader>ewq', ':wqa<CR>')
 
 -- diagnostics (lint tags)
-set_n_keymap('<space>e', vim.diagnostic.open_float)
-set_n_keymap('[d', vim.diagnostic.goto_prev)
-set_n_keymap(']d', vim.diagnostic.goto_next)
-set_n_keymap('<space>q', vim.diagnostic.setloclist)
+-- set_n_keymap('<space>e', vim.diagnostic.open_float)
+-- set_n_keymap('[d', vim.diagnostic.goto_prev)
+-- set_n_keymap(']d', vim.diagnostic.goto_next)
+-- set_n_keymap('<space>q', vim.diagnostic.setloclist)
 
 -- visual mode --
 
