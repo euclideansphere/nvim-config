@@ -11,6 +11,7 @@ function M.setup()
 		{ src = "https://github.com/mfussenegger/nvim-dap" },
 		{ src = "https://github.com/nvim-neotest/nvim-nio" },
 		{ src = "https://github.com/rcarriga/nvim-dap-ui" },
+		{ src = "https://github.com/romus204/tree-sitter-manager.nvim" },
 		{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 		{ src = "https://github.com/ibhagwan/fzf-lua" },
 		{ src = "https://github.com/echasnovski/mini.surround" },
@@ -41,13 +42,13 @@ function M.setup()
 
 	-- 3. LSP & Tool Configuration
 	require("lazydev").setup({})
-	
+
 	require("mason").setup({
 		ui = { icons = { package_installed = "✓", package_pending = "➜", package_uninstalled = "✗" } }
 	})
 
 	require("mason-lspconfig").setup({})
-	
+
 	require("mason-tool-installer").setup({
 		ensure_installed = {
 			'lua-language-server',
@@ -57,6 +58,14 @@ function M.setup()
 			'html-lsp',
 			'sqlls',
 			'typescript-language-server'
+		}
+	})
+
+	require("tree-sitter-manager").setup({
+		ensure_installed = { "elixir", "heex" },
+		auto_install = true,
+		highlight = {
+			enable = true,
 		}
 	})
 

@@ -3,4 +3,3 @@ require('options')
 require('keymaps')
 require('filetype')
 require("config.pack").setup()
-
