@@ -1,6 +1,10 @@
 vim.filetype.add({
 	extension = {
-		mjs = 'javascript'
+		mjs = 'javascript',
+		ex = 'elixir',
+		exs = 'elixir',
+		heex = 'heex',
+		leex = 'leex',
 	}
 })
 
